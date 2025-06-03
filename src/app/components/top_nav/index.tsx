@@ -288,7 +288,7 @@ const ServiceCard = ({
   imageSrc = '/images/sample-service.svg',
   heading = 'Card Heading',
   description = 'Your bottom description text goes here.',
-}) => {
+}: any) => {
   return (
     <div className="w-[400px] h-[403.08px] border border-[#E0E0E0] rounded-[20px] flex flex-col items-center pt-4">
       {/* Image */}
@@ -299,7 +299,7 @@ const ServiceCard = ({
         height={189.3}
         className="rounded-[20px] object-cover"
       />
-      
+
       {/* Inner Content */}
       <div className="w-[373.09px] h-[356.3px] flex flex-col items-center gap-[18px] mt-4">
         <h3 className="font-poppins font-semibold text-[22px] leading-[100%] tracking-normal text-center text-[#084B92]">
@@ -392,10 +392,10 @@ export const ServicesSection = () => {
             ref={scrollRef}
             className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth px-8"
           >
-            {services.map((service, index) => (
+            {services.map((service: any, index: any) => (
               <ServiceCard
                 key={index}
-                image={service.image}
+                image={service?.image}
                 title={service.title}
                 description={service.description}
               />
