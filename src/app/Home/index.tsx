@@ -1,9 +1,5 @@
 "use client"
-import { TopNav,  ServicesSection, Navbar, Feature, OurServices, HowWeDeliverSection, WorkWithUsSection } from "../components/top_nav";
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title } from "chart.js";
-import SwiperCarousel from "../components/Crousal";
-import { Background, TextContent } from "../components/Background";
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title);
+import { TopNav, ServicesSection, Navbar, Feature,  CareWorkforceSection, WorkWithUsSection2, BlogsSection, ContactSection, Footer2 } from "../components/top_nav";
 
 export interface User {
   id: string;
@@ -35,21 +31,16 @@ export default function Home() {
 
   return (
     <div className="flex h-screen  w-screen">
-      <div className="flex flex-col w-full" >
+      <div className="flex flex-col w-full overflow-x-hidden overflow-y-scroll" >
         <TopNav />
         <Navbar />
-
         <Feature />
         <ServicesSection />
-        <HowWeDeliverSection />
-        <WorkWithUsSection />
-        {/* <OurServices /> */}
-        {/* <SwiperCarousel />
-          <TextContent />
-          <HomeSection />
-          <AboutUsCard />
-          <ServicesSection />
-          <Footer /> */}
+        <CareWorkforceSection />
+        <WorkWithUsSection2 />
+        <BlogsSection />
+        <ContactSection />
+        <Footer2 />
       </div>
     </div>
   );
