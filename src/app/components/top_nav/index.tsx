@@ -7,6 +7,7 @@ import DeliverIcon1 from '../../../../public/deliver-1.svg'
 import DeliverIcon0 from '../../../../public/deliver-0.svg'
 import ServicesIcon from '../../../../public/services-icon.svg'
 import WorkIcon from '../../../../public/workIcon.svg'
+import BlogIcon from '../../../../public/blogIcon.svg'
 export function TopNav() {
   return (
     <div className="bg-[#002e6d] text-white text-xs md:text-sm px-4 py-2">
@@ -784,13 +785,11 @@ export const WorkWithUsSection2: React.FC = () => {
                 <WorkIcon />
                 Work With Us
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                 7 Reasons To <span className="text-blue-500">Work With Us</span>
               </h2>
-              <p className="text-gray-600 text-lg leading-relaxed">
-                Care Direct Recruitment Ltd was built from a breadth perspective we build
-                without inexperience members of staff. If you are thinking about joining our family, here are six compelling
-                reasons to join us - Career development.
+              <p className="text-gray-600 text-xs leading-relaxed">
+                As a care provider recruitment agency, our success comes from the heartfelt connections we build with our incredible members of staff. If you’re thinking about joining our family, here are six wonderful reasons to Join us  - career advancements.
               </p>
             </div>
 
@@ -798,7 +797,7 @@ export const WorkWithUsSection2: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               {reasons.slice(0, 8).map((reason, index) => {
                 return index != 7 ?
-                  <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                  <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow h-[101px]">
                     <div className="flex items-start gap-4">
                       <span className="text-3xl font-bold text-gray-200 leading-none">
                         {reason.number}
@@ -860,7 +859,7 @@ export const BlogsSection: React.FC = () => {
       excerpt: "Aenean eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium, donec dictum.",
       author: "Joanna Wellick",
       date: "June 28, 2018",
-      image: "/api/placeholder/300/200",
+      image: "/blog-1.png",
       category: "Aenean Eleifend"
     },
     {
@@ -869,7 +868,7 @@ export const BlogsSection: React.FC = () => {
       excerpt: "Aenean eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium, donec dictum.",
       author: "Joanna Wellick",
       date: "June 28, 2018",
-      image: "/api/placeholder/300/200",
+      image: "/blog-2.png",
       category: "Aenean Eleifend"
     },
     {
@@ -878,7 +877,7 @@ export const BlogsSection: React.FC = () => {
       excerpt: "Aenean eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum.",
       author: "Joanna Wellick",
       date: "June 28, 2018",
-      image: "/api/placeholder/300/200",
+      image: "/blog-3.png",
       category: "Aenean Eleifend"
     }
   ];
@@ -889,10 +888,10 @@ export const BlogsSection: React.FC = () => {
         {/* Header */}
         <div className="flex justify-between items-center mb-12">
           <div>
-            <div className="inline-flex items-center bg-green-100 text-green-600 px-4 py-2 rounded-full text-sm font-medium mb-4">
-              <span className="mr-2">📝</span>
-              Blogs
-            </div>
+          <div className="flex items-center bg-[#A8D5BA26] text-[#A8D5BA] font-normal font-ibm text-[16px] leading-[100%] tracking-[0.12em] capitalize rounded-[20px] rounded-br-none w-[150px] h-[64px] gap-[10px] px-[25px] py-[12px] mb-2">
+                <BlogIcon />
+                Blog
+              </div>
             <h2 className="text-4xl font-bold text-gray-900">
               Care Direct <span className="text-blue-500">Blogs</span>
             </h2>
@@ -908,23 +907,23 @@ export const BlogsSection: React.FC = () => {
         {/* Blog Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post) => (
-            <article key={post.id} className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
+            <article key={post.id} className="bg-white h-[601px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
               {/* Image */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-[254px] overflow-hidden">
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="w-full h-full object-cover"
+                  className="w-full  object-cover"
                 />
                 {/* Category Tags */}
-                <div className="absolute top-4 left-4 flex gap-2">
+                {/* <div className="absolute top-4 left-4 flex gap-2">
                   <span className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-medium">
                     {post.category}
                   </span>
                   <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">
                     Aluguent
                   </span>
-                </div>
+                </div> */}
               </div>
 
               {/* Content */}
@@ -967,12 +966,12 @@ export const ContactSection: React.FC = () => {
   return (
     <section className="py-16 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
+        <div className="flex flex-col lg:flex-row gap-12 items-stretch">
           {/* Left Side - Image */}
           <div className="lg:w-1/2">
-            <div className="rounded-2xl overflow-hidden shadow-2xl">
+            <div className="rounded-2xl overflow-hidden shadow-2xl h-full">
               <img
-                src="/api/placeholder/500/400"
+                src="/contact.png"
                 alt="Elderly woman using phone"
                 className="w-full h-full object-cover"
               />
@@ -980,8 +979,8 @@ export const ContactSection: React.FC = () => {
           </div>
 
           {/* Right Side - Contact Form */}
-          <div className="lg:w-1/2">
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+          <div className="lg:w-1/2 flex">
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 flex-1">
               {/* Header */}
               <div className="mb-8">
                 <div className="inline-flex items-center bg-green-100 text-green-600 px-4 py-2 rounded-full text-sm font-medium mb-4">
