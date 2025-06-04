@@ -1,6 +1,6 @@
 'use client';
 import Image from "next/image";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { FaInstagram, FaLinkedin, FaEnvelope, FaFacebook, FaMapMarkerAlt, FaCalendarAlt, FaPhoneAlt } from "react-icons/fa";
 import { Star } from 'lucide-react';
 import DeliverIcon1 from '../../../../public/deliver-1.svg'
@@ -8,6 +8,7 @@ import DeliverIcon0 from '../../../../public/deliver-0.svg'
 import ServicesIcon from '../../../../public/services-icon.svg'
 import WorkIcon from '../../../../public/workIcon.svg'
 import BlogIcon from '../../../../public/blogIcon.svg'
+import ContactIcon from '../../../../public/contactIcon.svg'
 export function TopNav() {
   return (
     <div className="bg-[#002e6d] text-white text-xs md:text-sm px-4 py-2">
@@ -291,7 +292,7 @@ export const ServicesSection = () => {
   };
 
   return (
-    <section className="py-16 bg-white mt-20 ml-20">
+    <section className="py-16 bg-white mt-20 px-20">
       <div className="container mx-auto px-4">
         {/* Header with button */}
 
@@ -689,7 +690,7 @@ export const CareWorkforceSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-16 px-20">
       <div className="max-w-7xl mx-auto">
         {/* Main Container with Gradient Background */}
         <div className="relative bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 rounded-3xl p-12 overflow-hidden">
@@ -728,7 +729,6 @@ export const CareWorkforceSection: React.FC = () => {
     </section>
   );
 };
-
 export const WorkWithUsSection2: React.FC = () => {
   const reasons = [
     {
@@ -774,7 +774,7 @@ export const WorkWithUsSection2: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 px-4 bg-gray-50">
+    <section className="py-16 px-4 bg-gray-50  px-20">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row items-start gap-16">
           {/* Left Side - Content */}
@@ -789,24 +789,24 @@ export const WorkWithUsSection2: React.FC = () => {
                 7 Reasons To <span className="text-blue-500">Work With Us</span>
               </h2>
               <p className="text-gray-600 text-xs leading-relaxed">
-                As a care provider recruitment agency, our success comes from the heartfelt connections we build with our incredible members of staff. If you’re thinking about joining our family, here are six wonderful reasons to Join us  - career advancements.
+                As a care provider recruitment agency, our success comes from the heartfelt connections we build with our incredible members of staff. If you're thinking about joining our family, here are six wonderful reasons to Join us  - career advancements.
               </p>
             </div>
 
             {/* Reasons Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
               {reasons.slice(0, 8).map((reason, index) => {
                 return index != 7 ?
-                  <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow h-[101px]">
-                    <div className="flex items-start gap-4">
+                  <div key={index} className="bg-white p-6 shadow-sm hover:shadow-md transition-shadow" style={{ width: '270.99755859375px', height: '101.246337890625px', borderRadius: '10px' }}>
+                    <div className="flex items-center gap-4 h-full">
                       <span className="text-3xl font-bold text-gray-200 leading-none">
                         {reason.number}
                       </span>
-                      <div className="flex-1">
+                      <div className="flex flex-col items-center justify-center flex-1">
                         <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
                           <div className="w-5 h-5 bg-blue-500 rounded"></div>
                         </div>
-                        <h3 className="font-semibold text-gray-900 text-sm leading-tight">
+                        <h3 className="font-semibold text-gray-900 text-sm leading-tight text-center">
                           {reason.title}
                         </h3>
                       </div>
@@ -839,7 +839,6 @@ export const WorkWithUsSection2: React.FC = () => {
     </section>
   );
 };
-
 // components/BlogsSection.tsx
 interface BlogPost {
   id: string;
@@ -883,15 +882,15 @@ export const BlogsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 px-4 bg-gray-50">
+    <section className="py-16 px-4 bg-gray-50 px-20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-12">
           <div>
-          <div className="flex items-center bg-[#A8D5BA26] text-[#A8D5BA] font-normal font-ibm text-[16px] leading-[100%] tracking-[0.12em] capitalize rounded-[20px] rounded-br-none w-[150px] h-[64px] gap-[10px] px-[25px] py-[12px] mb-2">
-                <BlogIcon />
-                Blog
-              </div>
+            <div className="flex items-center bg-[#A8D5BA26] text-[#A8D5BA] font-normal font-ibm text-[16px] leading-[100%] tracking-[0.12em] capitalize rounded-[20px] rounded-br-none w-[150px] h-[64px] gap-[10px] px-[25px] py-[12px] mb-2">
+              <BlogIcon />
+              Blog
+            </div>
             <h2 className="text-4xl font-bold text-gray-900">
               Care Direct <span className="text-blue-500">Blogs</span>
             </h2>
@@ -913,47 +912,46 @@ export const BlogsSection: React.FC = () => {
                 <img
                   src={post.image}
                   alt={post.title}
-                  className="w-full  object-cover"
+                  className="w-full h-full object-cover"
                 />
-                {/* Category Tags */}
-                {/* <div className="absolute top-4 left-4 flex gap-2">
-                  <span className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-medium">
-                    {post.category}
-                  </span>
-                  <span className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium">
-                    Aluguent
-                  </span>
-                </div> */}
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight">
-                  {post.title}
-                </h3>
-                <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-                  Veli eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim. Venenatis eget
-                  adipiscing luctus lorem.
-                </p>
+              <div className="p-6 flex flex-col h-[347px] justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4 leading-tight">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                    Aenean eleifend ante maecenas pulvinar montes lorem et pede dis dolor pretium donec dictum. Vici consequat justo enim. Venenatis eget adipiscing luctus lorem.
+                  </p>
+                </div>
 
-                {/* Author & Date */}
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-gray-200 rounded-full flex items-center justify-center">
-                      <span className="text-xs">👤</span>
-                    </div>
-                    <div>
-                      <p className="text-sm font-medium text-gray-900">{post.author}</p>
-                      <p className="text-xs text-gray-500">{post.date}</p>
+                {/* Bottom Info */}
+                <div className="flex flex-col gap-3">
+                  {/* Top row: avatar, name, horizontal line, date */}
+                  <div className="flex items-center w-full">
+                    <img
+                      src={'/williamImage.svg'}
+                      alt={post.author}
+                      className="w-8 h-8 rounded-full object-cover mr-2"
+                    />
+                    <span className="text-sm font-medium text-gray-900">{post.author}</span>
+                    <div className="flex-grow border-t border-gray-300 mx-3"></div>
+                    <span className="text-xs text-gray-500">{post.date}</span>
+                  </div>
+
+                  {/* Learn More link */}
+                  <div className="flex justify-center items-center gap-2 text-sky-500 font-medium cursor-pointer hover:underline">
+                    <span>Learn More</span>
+                    <div className="w-6 h-6 bg-sky-500 rounded-full flex items-center justify-center text-white text-sm">
+                      →
                     </div>
                   </div>
-                  <button className="text-blue-500 hover:text-blue-600 font-medium text-sm inline-flex items-center gap-1">
-                    Learn More
-                    <span className="text-xs">→</span>
-                  </button>
                 </div>
               </div>
             </article>
+
           ))}
         </div>
       </div>
@@ -964,7 +962,7 @@ export const BlogsSection: React.FC = () => {
 // components/ContactSection.tsx
 export const ContactSection: React.FC = () => {
   return (
-    <section className="py-16 px-4 bg-white">
+    <section className="py-16 px-4 bg-white px-20">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-12 items-stretch">
           {/* Left Side - Image */}
@@ -983,8 +981,12 @@ export const ContactSection: React.FC = () => {
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 flex-1">
               {/* Header */}
               <div className="mb-8">
-                <div className="inline-flex items-center bg-green-100 text-green-600 px-4 py-2 rounded-full text-sm font-medium mb-4">
+                {/* <div className="inline-flex items-center bg-green-100 text-green-600 px-4 py-2 rounded-full text-sm font-medium mb-4">
                   <span className="mr-2">📞</span>
+                  Contact
+                </div> */}
+                <div className="flex items-center bg-[#A8D5BA26] text-[#A8D5BA] font-normal font-ibm text-[16px] leading-[100%] tracking-[0.12em] capitalize rounded-[20px] rounded-br-none w-[170px] h-[64px] gap-[10px] px-[25px] py-[12px] mb-2">
+                  <ContactIcon />
                   Contact
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900">
@@ -1069,10 +1071,16 @@ export const ContactSection: React.FC = () => {
 
 // components/Footer.tsx
 export const Footer2: React.FC = () => {
+  const [email, setEmail] = useState('');
+
+  const handleSubmit = () => {
+    console.log('Email submitted:', email);
+    // Handle subscription logic here
+  };
   return (
-    <footer className="bg-gradient-to-b from-blue-600 via-blue-700 to-blue-800 text-white">
+    <footer className="bg-gradient-to-b from-blue-600 via-blue-700 to-blue-800 text-white relative mt-[80px]">
       {/* Newsletter Section */}
-      <div className="py-8">
+      <div className="absolute -top-[100px] left-1/2 transform -translate-x-1/2 z-10 w-full">
         <div className="max-w-4xl mx-auto px-4">
           <div className="bg-cyan-400 rounded-2xl p-8 text-center">
             <h3 className="text-2xl font-bold text-white mb-4">
@@ -1081,7 +1089,26 @@ export const Footer2: React.FC = () => {
             <p className="text-white/90 mb-6">
               Subscribe us to get the latest news and updates
             </p>
-            <div className="flex gap-3 max-w-md mx-auto">
+            <div className="w-[650px]  mx-auto">
+              <div className="relative">
+                <div className="flex items-center bg-white rounded-full shadow-lg overflow-hidden">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email address"
+                    className="flex-1 px-6 py-4 text-gray-700 placeholder-gray-400 focus:outline-none bg-transparent"
+                  />
+                  <button
+                    onClick={handleSubmit}
+                    className="bg-cyan-400 hover:bg-cyan-500 text-white font-semibold px-8 py-4 my-2 rounded-full transition-colors duration-200 mr-1"
+                  >
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </div>
+            {/* <div className="flex gap-3 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="Enter you email address"
@@ -1090,13 +1117,13 @@ export const Footer2: React.FC = () => {
               <button className="bg-white text-cyan-400 px-6 py-3 rounded-full font-semibold hover:bg-gray-50 transition-colors">
                 Subscribe
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
 
       {/* Main Footer */}
-      <div className="px-4 py-12">
+      <div className="px-4 py-12 pt-32 mt-28">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Company Info */}
