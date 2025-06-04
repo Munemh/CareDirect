@@ -14,7 +14,7 @@ export function TopNav() {
     <div className="bg-[#002e6d] text-white text-xs md:text-sm px-4 py-2">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2 md:gap-6">
         {/* Email */}
-        <div className="flex gap-6">
+        <div className="flex gap-6 pl-20">
           <div className="flex items-center gap-2">
             <Image src="/mail.svg" alt="Mail" width={14} height={14} />
             <span>info@caredirectrecruitment.co.uk</span>
@@ -67,8 +67,8 @@ export function Navbar({ activePage = 'home' }) {
   return (
     <div className="bg-white shadow-sm">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-4">
-        <div className="flex items-center gap-2">
-          <Image src="/logo.svg" alt="Logo" width={180} height={50} />
+        <div className="flex items-center gap-2 pl-20">
+          <Image src="/logo.svg" alt="Logo" width={300} height={70} />
         </div>
         <nav className="hidden md:flex gap-6 text-sm font-medium">
           {links.map((link) => (
@@ -293,7 +293,7 @@ export const ServicesSection = () => {
 
   return (
     <section className="py-16 bg-white mt-20 px-20">
-      <div className="container mx-auto px-4">
+      <div className="container ">
         {/* Header with button */}
 
         <div className="flex justify-between items-center mb-8">
@@ -322,14 +322,14 @@ export const ServicesSection = () => {
         {/* Cards with arrows */}
         <div className="relative">
           {/* Left arrow */}
-          <div className="absolute -left-6 top-1/2 transform -translate-y-1/2 z-20">
+          <div className="absolute -left-10 top-1/2 transform -translate-y-1/2 z-20">
             <ArrowButton direction="left" onClick={() => scroll('left')} />
           </div>
 
           {/* Scrollable cards */}
           <div
             ref={scrollRef}
-            className="flex overflow-x-hidden gap-2 px-12"
+            className="flex w-full overflow-x-hidden gap-2"
           >
             {services.map((service: any, index: any) => (
               <ServiceCard
@@ -342,7 +342,7 @@ export const ServicesSection = () => {
           </div>
 
           {/* Right arrow */}
-          <div className="absolute -right-4 top-1/2 transform -translate-y-1/2 z-20">
+          <div className="absolute -right-10 top-1/2 transform -translate-y-1/2 z-20">
             <ArrowButton direction="right" onClick={() => scroll('right')} />
           </div>
         </div>
