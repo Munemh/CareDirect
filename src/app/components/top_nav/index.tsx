@@ -1,9 +1,10 @@
 'use client';
 import Image from "next/image";
-import React,{useRef} from "react";
+import React, { useRef } from "react";
 import { FaInstagram, FaLinkedin, FaEnvelope, FaFacebook, FaMapMarkerAlt, FaCalendarAlt, FaPhoneAlt } from "react-icons/fa";
 import { Star } from 'lucide-react';
-
+import DeliverIcon1 from '../../../../public/deliver-1.svg'
+import DeliverIcon0 from '../../../../public/deliver-0.svg'
 export function TopNav() {
   return (
     <div className="bg-[#002e6d] text-white text-xs md:text-sm px-4 py-2">
@@ -192,6 +193,7 @@ export function Feature() {
 
 
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { log } from "console";
 
 interface ArrowButtonProps {
   direction: 'left' | 'right';
@@ -566,6 +568,7 @@ interface WorkforceCardProps {
   description: string;
   icon: React.ReactNode;
   isHighlighted?: boolean;
+  index?: number
 }
 
 const WorkforceCard: React.FC<WorkforceCardProps> = ({
@@ -573,16 +576,20 @@ const WorkforceCard: React.FC<WorkforceCardProps> = ({
   title,
   description,
   icon,
-  isHighlighted = false
+  isHighlighted = false,
+  index = 0
 }) => {
+
+  // ${isHighlighted ? 'shadow-lg' : 'opacity-60'}
   return (
     <div className={`
       relative bg-white rounded-2xl p-8 h-48 flex flex-col justify-between
-      ${isHighlighted ? 'shadow-lg' : 'opacity-60'}
-      transition-all duration-300 hover:opacity-100 hover:shadow-lg
+      transition-all duration-300 hover:opacity-100 hover:shadow-lg h-[221px]
     `}>
       {/* Icon */}
-      <div className="flex justify-center mb-4">
+      <div className={`flex 
+      ${index == 0 ? 'justify-center' : ''}
+       mb-4`}>
         {icon}
       </div>
 
@@ -602,7 +609,7 @@ const WorkforceCard: React.FC<WorkforceCardProps> = ({
           {title}
         </h3>
         <p className={`
-          text-sm leading-relaxed
+          text-xs leading-relaxed
           ${isHighlighted ? 'text-gray-600' : 'text-gray-400'}
         `}>
           {description}
@@ -639,45 +646,45 @@ const HeartIcon: React.FC<{ className?: string }> = ({ className = "" }) => (
 export const CareWorkforceSection: React.FC = () => {
   const workforceData = [
     {
-      number: "01",
+      number: "",
       title: "How We Deliver",
-      description: "Practical Support for Pressured Providers From fast-minute staff shortages to long-term workforce planning.",
-      icon: <HandshakeIcon />,
+      description: "",
+      icon: <DeliverIcon0 />,
       isHighlighted: true
     },
     {
+      number: "01",
+      title: "",
+      description: "From RGN and RMNs to senior carers, we provide fully qualified, ethically recruited professionals for roles in both community and residential settings.",
+      icon: <DeliverIcon1 />,
+      isHighlighted: false
+    },
+    {
       number: "02",
-      title: "Expert Skills and Knowledge Training Care with Minimum Fully Qualified Effectively Dedicated Professionals For Those In Both Community and Residential Settings",
-      description: "",
-      icon: <HeartIcon />,
+      title: "",
+      description: "RNM-qualified and DBS-cleared candidates.",
+      icon: <DeliverIcon1 />,
       isHighlighted: false
     },
     {
       number: "03",
-      title: "Expert Qualified and Effective Clinical Care Options",
-      description: "",
-      icon: <HeartIcon />,
+      title: "",
+      description: "Rigorous vetting: interviews, references, compliance.",
+      icon: <DeliverIcon1 />,
       isHighlighted: false
     },
     {
       number: "04",
-      title: "Rigorous Vetting, Interviews, References, Compliance",
-      description: "",
-      icon: <HeartIcon />,
+      title: "",
+      description: "Structured onboarding and role-specific induction",
+      icon: <DeliverIcon1 />,
       isHighlighted: false
     },
     {
       number: "05",
-      title: "Structured Onboarding and Bespoke Specific Induction Process",
-      description: "",
-      icon: <HeartIcon />,
-      isHighlighted: false
-    },
-    {
-      number: "06",
-      title: "Ongoing Supervision and Quality Reviews",
-      description: "",
-      icon: <HeartIcon />,
+      title: "",
+      description: "Ongoing supervision and quality reviews",
+      icon: <DeliverIcon1 />,
       isHighlighted: false
     }
   ];
@@ -708,6 +715,7 @@ export const CareWorkforceSection: React.FC = () => {
             {workforceData.map((item, index) => (
               <WorkforceCard
                 key={index}
+                index={index}
                 number={item.number}
                 title={item.title}
                 description={item.description}
@@ -833,46 +841,12 @@ export const WorkWithUsSection2: React.FC = () => {
           <div className="lg:w-1/2 relative">
             <div className="relative">
               {/* Main Image Circle */}
-              <div className="w-80 h-80 mx-auto relative">
-                <div className="w-full h-full rounded-full overflow-hidden border-4 border-blue-600 shadow-2xl">
-                  <img
-                    src="/api/placeholder/320/320"
-                    alt="Healthcare professional with elderly patient"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Floating Icons */}
-                <div className="absolute -top-4 -right-4 w-16 h-16 bg-orange-300 rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-white text-xl">⚙️</span>
-                </div>
-
-                <div className="absolute top-1/4 -left-8 w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-white text-lg">🔬</span>
-                </div>
-
-                <div className="absolute top-1/2 right-0 w-10 h-10 bg-orange-400 rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-white text-sm">○</span>
-                </div>
-
-                <div className="absolute bottom-1/4 -left-6 w-14 h-14 bg-blue-400 rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-white text-lg">📊</span>
-                </div>
-
-                <div className="absolute -bottom-2 right-1/4 w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-white text-lg">👥</span>
-                </div>
-
-                <div className="absolute bottom-1/3 -right-8 w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center shadow-lg">
-                  <span className="text-white text-xl">📈</span>
-                </div>
-              </div>
-
-              {/* Background Circles */}
-              <div className="absolute inset-0 -z-10">
-                <div className="w-96 h-96 border border-gray-200 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                <div className="w-[420px] h-[420px] border border-gray-200 rounded-full absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-              </div>
+              <img
+                src="/roundImage.png"
+                alt={"workWithUs"}
+                className="w-full h-full object-cover"
+              />
+              {/* <Image src="/mail.svg" alt="Mail" width={14} height={14} /> */}
             </div>
           </div>
         </div>
