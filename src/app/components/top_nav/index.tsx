@@ -5,6 +5,8 @@ import { FaInstagram, FaLinkedin, FaEnvelope, FaFacebook, FaMapMarkerAlt, FaCale
 import { Star } from 'lucide-react';
 import DeliverIcon1 from '../../../../public/deliver-1.svg'
 import DeliverIcon0 from '../../../../public/deliver-0.svg'
+import ServicesIcon from '../../../../public/services-icon.svg'
+import WorkIcon from '../../../../public/workIcon.svg'
 export function TopNav() {
   return (
     <div className="bg-[#002e6d] text-white text-xs md:text-sm px-4 py-2">
@@ -295,12 +297,8 @@ export const ServicesSection = () => {
         <div className="flex justify-between items-center mb-8">
           <div>
             {/* Services Label with Icon */}
-            <div className="flex items-center bg-[#A8D5BA26] text-[#A8D5BA] font-normal font-ibm text-[16px] leading-[100%] tracking-[0.12em] capitalize rounded-[20px] w-[174px] h-[64px] gap-[10px] px-[25px] py-[12px] mb-2">
-              <Image
-                src="/services-icon.svg"
-                alt="Services Icon"
-                width={24}
-                height={24}
+            <div className="flex items-center bg-[#A8D5BA26] text-[#A8D5BA] font-normal font-ibm text-[16px] leading-[100%] tracking-[0.12em] capitalize rounded-[20px] rounded-br-none w-[180px] h-[64px] gap-[10px] px-[25px] py-[12px] mb-2">
+              <ServicesIcon
               />
               Services
             </div>
@@ -730,7 +728,6 @@ export const CareWorkforceSection: React.FC = () => {
   );
 };
 
-
 export const WorkWithUsSection2: React.FC = () => {
   const reasons = [
     {
@@ -767,19 +764,24 @@ export const WorkWithUsSection2: React.FC = () => {
       number: "07",
       title: "Clear career progression",
       description: ""
+    },
+    {
+      number: "08",
+      title: "",
+      description: ""
     }
   ];
 
   return (
     <section className="py-16 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+        <div className="flex flex-col lg:flex-row items-start gap-16">
           {/* Left Side - Content */}
           <div className="lg:w-1/2">
             {/* Header */}
             <div className="mb-12">
-              <div className="inline-flex items-center bg-green-100 text-green-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <span className="mr-2">🍃</span>
+              <div className="flex items-center bg-[#A8D5BA26] text-[#A8D5BA] font-normal font-ibm text-[16px] leading-[100%] tracking-[0.12em] capitalize rounded-[20px] rounded-br-none w-[250px] h-[64px] gap-[10px] px-[25px] py-[12px] mb-2">
+                <WorkIcon />
                 Work With Us
               </div>
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -794,47 +796,32 @@ export const WorkWithUsSection2: React.FC = () => {
 
             {/* Reasons Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              {reasons.slice(0, 6).map((reason, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="flex items-start gap-4">
-                    <span className="text-3xl font-bold text-gray-200 leading-none">
-                      {reason.number}
-                    </span>
-                    <div className="flex-1">
-                      <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
-                        <div className="w-5 h-5 bg-blue-500 rounded"></div>
+              {reasons.slice(0, 8).map((reason, index) => {
+                return index != 7 ?
+                  <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="flex items-start gap-4">
+                      <span className="text-3xl font-bold text-gray-200 leading-none">
+                        {reason.number}
+                      </span>
+                      <div className="flex-1">
+                        <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+                          <div className="w-5 h-5 bg-blue-500 rounded"></div>
+                        </div>
+                        <h3 className="font-semibold text-gray-900 text-sm leading-tight">
+                          {reason.title}
+                        </h3>
                       </div>
-                      <h3 className="font-semibold text-gray-900 text-sm leading-tight">
-                        {reason.title}
-                      </h3>
                     </div>
                   </div>
-                </div>
-              ))}
+                  :
+                  <button className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center gap-2">
+                    Start Your Journey With Us
+                    <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
+                      <span className="text-xs">→</span>
+                    </div>
+                  </button>
+              })}
             </div>
-
-            {/* Reason 07 - Special Layout */}
-            <div className="bg-white rounded-xl p-6 shadow-sm mb-8">
-              <div className="flex items-start gap-4">
-                <span className="text-3xl font-bold text-gray-200 leading-none">07</span>
-                <div className="flex-1">
-                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
-                    <div className="w-5 h-5 bg-blue-500 rounded"></div>
-                  </div>
-                  <h3 className="font-semibold text-gray-900 text-sm leading-tight mb-4">
-                    Clear career progression
-                  </h3>
-                </div>
-              </div>
-            </div>
-
-            {/* CTA Button */}
-            <button className="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-flex items-center gap-2">
-              Start Your Journey With Us
-              <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
-                <span className="text-xs">→</span>
-              </div>
-            </button>
           </div>
 
           {/* Right Side - Image with Floating Icons */}
@@ -846,7 +833,6 @@ export const WorkWithUsSection2: React.FC = () => {
                 alt={"workWithUs"}
                 className="w-full h-full object-cover"
               />
-              {/* <Image src="/mail.svg" alt="Mail" width={14} height={14} /> */}
             </div>
           </div>
         </div>
